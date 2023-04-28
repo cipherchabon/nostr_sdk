@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:nostr_sdk/nostr_sdk.dart' as nostr_sdk;
+// import 'package:nostr_sdk/nostr_sdk.dart' as nostr_sdk;
 
 void main() {
   runApp(const MyApp());
@@ -21,8 +21,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    sumResult = nostr_sdk.sum(1, 2);
-    sumAsyncResult = nostr_sdk.sumAsync(3, 4);
+    // sumResult = nostr_sdk.sum(1, 2);
+    // sumAsyncResult = nostr_sdk.sumAsync(3, 4);
   }
 
   @override
