@@ -20,14 +20,31 @@ Metadata _$MetadataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Metadata {
+  /// Name
   String? get name => throw _privateConstructorUsedError;
+
+  /// Display name
   String? get displayName => throw _privateConstructorUsedError;
+
+  /// Description
   String? get about => throw _privateConstructorUsedError;
+
+  /// Website url
   String? get website => throw _privateConstructorUsedError;
+
+  /// Picture url
   String? get picture => throw _privateConstructorUsedError;
+
+  /// Banner url
   String? get banner => throw _privateConstructorUsedError;
+
+  /// NIP05 (ex. name@example.com)
   String? get nip05 => throw _privateConstructorUsedError;
+
+  /// LNURL
   String? get lud06 => throw _privateConstructorUsedError;
+
+  /// Lightning Address
   String? get lud16 => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -215,22 +232,39 @@ class _$_Metadata implements _Metadata {
   factory _$_Metadata.fromJson(Map<String, dynamic> json) =>
       _$$_MetadataFromJson(json);
 
+  /// Name
   @override
   final String? name;
+
+  /// Display name
   @override
   final String? displayName;
+
+  /// Description
   @override
   final String? about;
+
+  /// Website url
   @override
   final String? website;
+
+  /// Picture url
   @override
   final String? picture;
+
+  /// Banner url
   @override
   final String? banner;
+
+  /// NIP05 (ex. name@example.com)
   @override
   final String? nip05;
+
+  /// LNURL
   @override
   final String? lud06;
+
+  /// Lightning Address
   @override
   final String? lud16;
 
@@ -290,22 +324,40 @@ abstract class _Metadata implements Metadata {
   factory _Metadata.fromJson(Map<String, dynamic> json) = _$_Metadata.fromJson;
 
   @override
+
+  /// Name
   String? get name;
   @override
+
+  /// Display name
   String? get displayName;
   @override
+
+  /// Description
   String? get about;
   @override
+
+  /// Website url
   String? get website;
   @override
+
+  /// Picture url
   String? get picture;
   @override
+
+  /// Banner url
   String? get banner;
   @override
+
+  /// NIP05 (ex. name@example.com)
   String? get nip05;
   @override
+
+  /// LNURL
   String? get lud06;
   @override
+
+  /// Lightning Address
   String? get lud16;
   @override
   @JsonKey(ignore: true)
