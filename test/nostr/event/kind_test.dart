@@ -3,17 +3,14 @@ import 'package:nostr_sdk/nostr/event/kind/kind.dart';
 
 void main() {
   test('equal kind', () {
-    expect(const Kind.custom(20100).equals(const Kind.custom(20100)), true);
-    expect(const Kind.custom(20100).equals(const Kind.ephemeral(20100)), true);
-    expect(const Kind.textNote().equals(const Kind.custom(1)), true);
+    expect(const Custom(20100), const Custom(20100));
+    expect(const Custom(20100), const Ephemeral(20100));
+    expect(const TextNote(), const Custom(1));
   });
 
   test('not equal kind', () {
-    expect(const Kind.custom(20100).equals(const Kind.custom(2000)), false);
-    expect(
-      const Kind.authentication().equals(const Kind.encryptedDirectMessage()),
-      false,
-    );
-    expect(const Kind.textNote().equals(const Kind.custom(2)), false);
+    expect(const Custom(20100), isNot(const Custom(2000)));
+    expect(const Authentication(), isNot(const EncryptedDirectMessage()));
+    expect(const TextNote(), isNot(const Custom(2)));
   });
 }

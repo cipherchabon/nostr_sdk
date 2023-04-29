@@ -6,394 +6,248 @@ part of 'kind.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$Metadata _$$MetadataFromJson(Map<String, dynamic> json) => _$Metadata(
-      $type: json['runtimeType'] as String?,
-    );
+Kind _$KindFromJson(Map<String, dynamic> json) => Kind();
 
-Map<String, dynamic> _$$MetadataToJson(_$Metadata instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$KindToJson(Kind instance) => <String, dynamic>{};
 
-_$TextNote _$$TextNoteFromJson(Map<String, dynamic> json) => _$TextNote(
-      $type: json['runtimeType'] as String?,
-    );
+Metadata _$MetadataFromJson(Map<String, dynamic> json) => Metadata();
 
-Map<String, dynamic> _$$TextNoteToJson(_$TextNote instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$MetadataToJson(Metadata instance) => <String, dynamic>{};
 
-_$RecommendRelay _$$RecommendRelayFromJson(Map<String, dynamic> json) =>
-    _$RecommendRelay(
-      $type: json['runtimeType'] as String?,
-    );
+TextNote _$TextNoteFromJson(Map<String, dynamic> json) => TextNote();
 
-Map<String, dynamic> _$$RecommendRelayToJson(_$RecommendRelay instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$TextNoteToJson(TextNote instance) => <String, dynamic>{};
 
-_$ContactList _$$ContactListFromJson(Map<String, dynamic> json) =>
-    _$ContactList(
-      $type: json['runtimeType'] as String?,
-    );
+RecommendRelay _$RecommendRelayFromJson(Map<String, dynamic> json) =>
+    RecommendRelay();
 
-Map<String, dynamic> _$$ContactListToJson(_$ContactList instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$RecommendRelayToJson(RecommendRelay instance) =>
+    <String, dynamic>{};
 
-_$EncryptedDirectMessage _$$EncryptedDirectMessageFromJson(
+ContactList _$ContactListFromJson(Map<String, dynamic> json) => ContactList();
+
+Map<String, dynamic> _$ContactListToJson(ContactList instance) =>
+    <String, dynamic>{};
+
+EncryptedDirectMessage _$EncryptedDirectMessageFromJson(
         Map<String, dynamic> json) =>
-    _$EncryptedDirectMessage(
-      $type: json['runtimeType'] as String?,
-    );
+    EncryptedDirectMessage();
 
-Map<String, dynamic> _$$EncryptedDirectMessageToJson(
-        _$EncryptedDirectMessage instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$EncryptedDirectMessageToJson(
+        EncryptedDirectMessage instance) =>
+    <String, dynamic>{};
 
-_$EventDeletion _$$EventDeletionFromJson(Map<String, dynamic> json) =>
-    _$EventDeletion(
-      $type: json['runtimeType'] as String?,
-    );
+EventDeletion _$EventDeletionFromJson(Map<String, dynamic> json) =>
+    EventDeletion();
 
-Map<String, dynamic> _$$EventDeletionToJson(_$EventDeletion instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$EventDeletionToJson(EventDeletion instance) =>
+    <String, dynamic>{};
 
-_$Repost _$$RepostFromJson(Map<String, dynamic> json) => _$Repost(
-      $type: json['runtimeType'] as String?,
-    );
+Repost _$RepostFromJson(Map<String, dynamic> json) => Repost();
 
-Map<String, dynamic> _$$RepostToJson(_$Repost instance) => <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$RepostToJson(Repost instance) => <String, dynamic>{};
 
-_$Reaction _$$ReactionFromJson(Map<String, dynamic> json) => _$Reaction(
-      $type: json['runtimeType'] as String?,
-    );
+Reaction _$ReactionFromJson(Map<String, dynamic> json) => Reaction();
 
-Map<String, dynamic> _$$ReactionToJson(_$Reaction instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ReactionToJson(Reaction instance) => <String, dynamic>{};
 
-_$BadgeAward _$$BadgeAwardFromJson(Map<String, dynamic> json) => _$BadgeAward(
-      $type: json['runtimeType'] as String?,
-    );
+BadgeAward _$BadgeAwardFromJson(Map<String, dynamic> json) => BadgeAward();
 
-Map<String, dynamic> _$$BadgeAwardToJson(_$BadgeAward instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$BadgeAwardToJson(BadgeAward instance) =>
+    <String, dynamic>{};
 
-_$ChannelCreation _$$ChannelCreationFromJson(Map<String, dynamic> json) =>
-    _$ChannelCreation(
-      $type: json['runtimeType'] as String?,
-    );
+ChannelCreation _$ChannelCreationFromJson(Map<String, dynamic> json) =>
+    ChannelCreation();
 
-Map<String, dynamic> _$$ChannelCreationToJson(_$ChannelCreation instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ChannelCreationToJson(ChannelCreation instance) =>
+    <String, dynamic>{};
 
-_$ChannelMetadata _$$ChannelMetadataFromJson(Map<String, dynamic> json) =>
-    _$ChannelMetadata(
-      $type: json['runtimeType'] as String?,
-    );
+ChannelMetadata _$ChannelMetadataFromJson(Map<String, dynamic> json) =>
+    ChannelMetadata();
 
-Map<String, dynamic> _$$ChannelMetadataToJson(_$ChannelMetadata instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ChannelMetadataToJson(ChannelMetadata instance) =>
+    <String, dynamic>{};
 
-_$ChannelMessage _$$ChannelMessageFromJson(Map<String, dynamic> json) =>
-    _$ChannelMessage(
-      $type: json['runtimeType'] as String?,
-    );
+ChannelMessage _$ChannelMessageFromJson(Map<String, dynamic> json) =>
+    ChannelMessage();
 
-Map<String, dynamic> _$$ChannelMessageToJson(_$ChannelMessage instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ChannelMessageToJson(ChannelMessage instance) =>
+    <String, dynamic>{};
 
-_$ChannelHideMessage _$$ChannelHideMessageFromJson(Map<String, dynamic> json) =>
-    _$ChannelHideMessage(
-      $type: json['runtimeType'] as String?,
-    );
+ChannelHideMessage _$ChannelHideMessageFromJson(Map<String, dynamic> json) =>
+    ChannelHideMessage();
 
-Map<String, dynamic> _$$ChannelHideMessageToJson(
-        _$ChannelHideMessage instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ChannelHideMessageToJson(ChannelHideMessage instance) =>
+    <String, dynamic>{};
 
-_$ChannelMuteUser _$$ChannelMuteUserFromJson(Map<String, dynamic> json) =>
-    _$ChannelMuteUser(
-      $type: json['runtimeType'] as String?,
-    );
+ChannelMuteUser _$ChannelMuteUserFromJson(Map<String, dynamic> json) =>
+    ChannelMuteUser();
 
-Map<String, dynamic> _$$ChannelMuteUserToJson(_$ChannelMuteUser instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ChannelMuteUserToJson(ChannelMuteUser instance) =>
+    <String, dynamic>{};
 
-_$PublicChatReserved45 _$$PublicChatReserved45FromJson(
+PublicChatReserved45 _$PublicChatReserved45FromJson(
         Map<String, dynamic> json) =>
-    _$PublicChatReserved45(
-      $type: json['runtimeType'] as String?,
-    );
+    PublicChatReserved45();
 
-Map<String, dynamic> _$$PublicChatReserved45ToJson(
-        _$PublicChatReserved45 instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$PublicChatReserved45ToJson(
+        PublicChatReserved45 instance) =>
+    <String, dynamic>{};
 
-_$PublicChatReserved46 _$$PublicChatReserved46FromJson(
+PublicChatReserved46 _$PublicChatReserved46FromJson(
         Map<String, dynamic> json) =>
-    _$PublicChatReserved46(
-      $type: json['runtimeType'] as String?,
-    );
+    PublicChatReserved46();
 
-Map<String, dynamic> _$$PublicChatReserved46ToJson(
-        _$PublicChatReserved46 instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$PublicChatReserved46ToJson(
+        PublicChatReserved46 instance) =>
+    <String, dynamic>{};
 
-_$PublicChatReserved47 _$$PublicChatReserved47FromJson(
+PublicChatReserved47 _$PublicChatReserved47FromJson(
         Map<String, dynamic> json) =>
-    _$PublicChatReserved47(
-      $type: json['runtimeType'] as String?,
-    );
+    PublicChatReserved47();
 
-Map<String, dynamic> _$$PublicChatReserved47ToJson(
-        _$PublicChatReserved47 instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$PublicChatReserved47ToJson(
+        PublicChatReserved47 instance) =>
+    <String, dynamic>{};
 
-_$PublicChatReserved48 _$$PublicChatReserved48FromJson(
+PublicChatReserved48 _$PublicChatReserved48FromJson(
         Map<String, dynamic> json) =>
-    _$PublicChatReserved48(
-      $type: json['runtimeType'] as String?,
-    );
+    PublicChatReserved48();
 
-Map<String, dynamic> _$$PublicChatReserved48ToJson(
-        _$PublicChatReserved48 instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$PublicChatReserved48ToJson(
+        PublicChatReserved48 instance) =>
+    <String, dynamic>{};
 
-_$PublicChatReserved49 _$$PublicChatReserved49FromJson(
+PublicChatReserved49 _$PublicChatReserved49FromJson(
         Map<String, dynamic> json) =>
-    _$PublicChatReserved49(
-      $type: json['runtimeType'] as String?,
-    );
+    PublicChatReserved49();
 
-Map<String, dynamic> _$$PublicChatReserved49ToJson(
-        _$PublicChatReserved49 instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$PublicChatReserved49ToJson(
+        PublicChatReserved49 instance) =>
+    <String, dynamic>{};
 
-_$Reporting _$$ReportingFromJson(Map<String, dynamic> json) => _$Reporting(
-      $type: json['runtimeType'] as String?,
-    );
+Reporting _$ReportingFromJson(Map<String, dynamic> json) => Reporting();
 
-Map<String, dynamic> _$$ReportingToJson(_$Reporting instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ReportingToJson(Reporting instance) =>
+    <String, dynamic>{};
 
-_$ZapRequest _$$ZapRequestFromJson(Map<String, dynamic> json) => _$ZapRequest(
-      $type: json['runtimeType'] as String?,
-    );
+ZapRequest _$ZapRequestFromJson(Map<String, dynamic> json) => ZapRequest();
 
-Map<String, dynamic> _$$ZapRequestToJson(_$ZapRequest instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ZapRequestToJson(ZapRequest instance) =>
+    <String, dynamic>{};
 
-_$Zap _$$ZapFromJson(Map<String, dynamic> json) => _$Zap(
-      $type: json['runtimeType'] as String?,
-    );
+Zap _$ZapFromJson(Map<String, dynamic> json) => Zap();
 
-Map<String, dynamic> _$$ZapToJson(_$Zap instance) => <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ZapToJson(Zap instance) => <String, dynamic>{};
 
-_$MuteList _$$MuteListFromJson(Map<String, dynamic> json) => _$MuteList(
-      $type: json['runtimeType'] as String?,
-    );
+MuteList _$MuteListFromJson(Map<String, dynamic> json) => MuteList();
 
-Map<String, dynamic> _$$MuteListToJson(_$MuteList instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$MuteListToJson(MuteList instance) => <String, dynamic>{};
 
-_$PinList _$$PinListFromJson(Map<String, dynamic> json) => _$PinList(
-      $type: json['runtimeType'] as String?,
-    );
+PinList _$PinListFromJson(Map<String, dynamic> json) => PinList();
 
-Map<String, dynamic> _$$PinListToJson(_$PinList instance) => <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$PinListToJson(PinList instance) => <String, dynamic>{};
 
-_$RelayList _$$RelayListFromJson(Map<String, dynamic> json) => _$RelayList(
-      $type: json['runtimeType'] as String?,
-    );
+RelayList _$RelayListFromJson(Map<String, dynamic> json) => RelayList();
 
-Map<String, dynamic> _$$RelayListToJson(_$RelayList instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$RelayListToJson(RelayList instance) =>
+    <String, dynamic>{};
 
-_$Authentication _$$AuthenticationFromJson(Map<String, dynamic> json) =>
-    _$Authentication(
-      $type: json['runtimeType'] as String?,
-    );
+Authentication _$AuthenticationFromJson(Map<String, dynamic> json) =>
+    Authentication();
 
-Map<String, dynamic> _$$AuthenticationToJson(_$Authentication instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$AuthenticationToJson(Authentication instance) =>
+    <String, dynamic>{};
 
-_$NostrConnect _$$NostrConnectFromJson(Map<String, dynamic> json) =>
-    _$NostrConnect(
-      $type: json['runtimeType'] as String?,
-    );
+NostrConnect _$NostrConnectFromJson(Map<String, dynamic> json) =>
+    NostrConnect();
 
-Map<String, dynamic> _$$NostrConnectToJson(_$NostrConnect instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$NostrConnectToJson(NostrConnect instance) =>
+    <String, dynamic>{};
 
-_$CategorizedPeopleList _$$CategorizedPeopleListFromJson(
+CategorizedPeopleList _$CategorizedPeopleListFromJson(
         Map<String, dynamic> json) =>
-    _$CategorizedPeopleList(
-      $type: json['runtimeType'] as String?,
-    );
+    CategorizedPeopleList();
 
-Map<String, dynamic> _$$CategorizedPeopleListToJson(
-        _$CategorizedPeopleList instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$CategorizedPeopleListToJson(
+        CategorizedPeopleList instance) =>
+    <String, dynamic>{};
 
-_$CategorizedBookmarkList _$$CategorizedBookmarkListFromJson(
+CategorizedBookmarkList _$CategorizedBookmarkListFromJson(
         Map<String, dynamic> json) =>
-    _$CategorizedBookmarkList(
-      $type: json['runtimeType'] as String?,
-    );
+    CategorizedBookmarkList();
 
-Map<String, dynamic> _$$CategorizedBookmarkListToJson(
-        _$CategorizedBookmarkList instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$CategorizedBookmarkListToJson(
+        CategorizedBookmarkList instance) =>
+    <String, dynamic>{};
 
-_$ProfileBadges _$$ProfileBadgesFromJson(Map<String, dynamic> json) =>
-    _$ProfileBadges(
-      $type: json['runtimeType'] as String?,
-    );
+ProfileBadges _$ProfileBadgesFromJson(Map<String, dynamic> json) =>
+    ProfileBadges();
 
-Map<String, dynamic> _$$ProfileBadgesToJson(_$ProfileBadges instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ProfileBadgesToJson(ProfileBadges instance) =>
+    <String, dynamic>{};
 
-_$BadgeDefinition _$$BadgeDefinitionFromJson(Map<String, dynamic> json) =>
-    _$BadgeDefinition(
-      $type: json['runtimeType'] as String?,
-    );
+BadgeDefinition _$BadgeDefinitionFromJson(Map<String, dynamic> json) =>
+    BadgeDefinition();
 
-Map<String, dynamic> _$$BadgeDefinitionToJson(_$BadgeDefinition instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$BadgeDefinitionToJson(BadgeDefinition instance) =>
+    <String, dynamic>{};
 
-_$LongFormTextNote _$$LongFormTextNoteFromJson(Map<String, dynamic> json) =>
-    _$LongFormTextNote(
-      $type: json['runtimeType'] as String?,
-    );
+LongFormTextNote _$LongFormTextNoteFromJson(Map<String, dynamic> json) =>
+    LongFormTextNote();
 
-Map<String, dynamic> _$$LongFormTextNoteToJson(_$LongFormTextNote instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$LongFormTextNoteToJson(LongFormTextNote instance) =>
+    <String, dynamic>{};
 
-_$ApplicationSpecificData _$$ApplicationSpecificDataFromJson(
+ApplicationSpecificData _$ApplicationSpecificDataFromJson(
         Map<String, dynamic> json) =>
-    _$ApplicationSpecificData(
-      $type: json['runtimeType'] as String?,
-    );
+    ApplicationSpecificData();
 
-Map<String, dynamic> _$$ApplicationSpecificDataToJson(
-        _$ApplicationSpecificData instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$ApplicationSpecificDataToJson(
+        ApplicationSpecificData instance) =>
+    <String, dynamic>{};
 
-_$Regular _$$RegularFromJson(Map<String, dynamic> json) => _$Regular(
+Regular _$RegularFromJson(Map<String, dynamic> json) => Regular(
       json['value'] as int,
-      $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$RegularToJson(_$Regular instance) => <String, dynamic>{
+Map<String, dynamic> _$RegularToJson(Regular instance) => <String, dynamic>{
       'value': instance.value,
-      'runtimeType': instance.$type,
     };
 
-_$Replaceable _$$ReplaceableFromJson(Map<String, dynamic> json) =>
-    _$Replaceable(
+Replaceable _$ReplaceableFromJson(Map<String, dynamic> json) => Replaceable(
       json['value'] as int,
-      $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ReplaceableToJson(_$Replaceable instance) =>
+Map<String, dynamic> _$ReplaceableToJson(Replaceable instance) =>
     <String, dynamic>{
       'value': instance.value,
-      'runtimeType': instance.$type,
     };
 
-_$Ephemeral _$$EphemeralFromJson(Map<String, dynamic> json) => _$Ephemeral(
+Ephemeral _$EphemeralFromJson(Map<String, dynamic> json) => Ephemeral(
       json['value'] as int,
-      $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$EphemeralToJson(_$Ephemeral instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$EphemeralToJson(Ephemeral instance) => <String, dynamic>{
       'value': instance.value,
-      'runtimeType': instance.$type,
     };
 
-_$ParameterizedReplaceable _$$ParameterizedReplaceableFromJson(
+ParameterizedReplaceable _$ParameterizedReplaceableFromJson(
         Map<String, dynamic> json) =>
-    _$ParameterizedReplaceable(
+    ParameterizedReplaceable(
       json['value'] as int,
-      $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ParameterizedReplaceableToJson(
-        _$ParameterizedReplaceable instance) =>
+Map<String, dynamic> _$ParameterizedReplaceableToJson(
+        ParameterizedReplaceable instance) =>
     <String, dynamic>{
       'value': instance.value,
-      'runtimeType': instance.$type,
     };
 
-_$Custom _$$CustomFromJson(Map<String, dynamic> json) => _$Custom(
+Custom _$CustomFromJson(Map<String, dynamic> json) => Custom(
       json['value'] as int,
-      $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$CustomToJson(_$Custom instance) => <String, dynamic>{
+Map<String, dynamic> _$CustomToJson(Custom instance) => <String, dynamic>{
       'value': instance.value,
-      'runtimeType': instance.$type,
     };

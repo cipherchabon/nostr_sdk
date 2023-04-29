@@ -1,260 +1,533 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'kind.freezed.dart';
 part 'kind.g.dart';
 
-/// Event [`Kind`]
-@Freezed(equal: false)
-class Kind with _$Kind {
-  /// Metadata (NIP01 and NIP05)
-  const factory Kind.metadata() = Metadata;
+const _valueToKindMap = <int, Kind>{
+  0: Metadata(),
+  1: TextNote(),
+  2: RecommendRelay(),
+  3: ContactList(),
+  4: EncryptedDirectMessage(),
+  5: EventDeletion(),
+  6: Repost(),
+  7: Reaction(),
+  8: BadgeAward(),
+  40: ChannelCreation(),
+  41: ChannelMetadata(),
+  42: ChannelMessage(),
+  43: ChannelHideMessage(),
+  44: ChannelMuteUser(),
+  45: PublicChatReserved45(),
+  46: PublicChatReserved46(),
+  47: PublicChatReserved47(),
+  48: PublicChatReserved48(),
+  49: PublicChatReserved49(),
+  1984: Reporting(),
+  9734: ZapRequest(),
+  9735: Zap(),
+  10000: MuteList(),
+  10001: PinList(),
+  10002: RelayList(),
+  22242: Authentication(),
+  24133: NostrConnect(),
+  30000: CategorizedPeopleList(),
+  30001: CategorizedBookmarkList(),
+  30008: ProfileBadges(),
+  30009: BadgeDefinition(),
+  30023: LongFormTextNote(),
+  30078: ApplicationSpecificData(),
+};
 
-  /// Short Text Note (NIP01)
-  const factory Kind.textNote() = TextNote;
+@JsonSerializable(explicitToJson: true)
+abstract class Kind extends Equatable {
+  int get value;
 
-  /// Recommend Relay (NIP01)
-  const factory Kind.recommendRelay() = RecommendRelay;
+  const Kind();
 
-  /// Contacts (NIP02)
-  const factory Kind.contactList() = ContactList;
-
-  /// Encrypted Direct Messages (NIP04)
-  const factory Kind.encryptedDirectMessage() = EncryptedDirectMessage;
-
-  /// Event Deletion (NIP09)
-  const factory Kind.eventDeletion() = EventDeletion;
-
-  /// Repost (NIP18)
-  const factory Kind.repost() = Repost;
-
-  /// Reaction (NIP25)
-  const factory Kind.reaction() = Reaction;
-
-  /// Badge Award (NIP58)
-  const factory Kind.badgeAward() = BadgeAward;
-
-  /// Channel Creation (NIP28)
-  const factory Kind.channelCreation() = ChannelCreation;
-
-  /// Channel Metadata (NIP28)
-  const factory Kind.channelMetadata() = ChannelMetadata;
-
-  /// Channel Message (NIP28)
-  const factory Kind.channelMessage() = ChannelMessage;
-
-  /// Channel Hide Message (NIP28)
-  const factory Kind.channelHideMessage() = ChannelHideMessage;
-
-  /// Channel Mute User (NIP28)
-  const factory Kind.channelMuteUser() = ChannelMuteUser;
-
-  /// Public Chat Reserved (NIP28)
-  const factory Kind.publicChatReserved45() = PublicChatReserved45;
-
-  /// Public Chat Reserved (NIP28)
-  const factory Kind.publicChatReserved46() = PublicChatReserved46;
-
-  /// Public Chat Reserved (NIP28)
-  const factory Kind.publicChatReserved47() = PublicChatReserved47;
-
-  /// Public Chat Reserved (NIP28)
-  const factory Kind.publicChatReserved48() = PublicChatReserved48;
-
-  /// Public Chat Reserved (NIP28)
-  const factory Kind.publicChatReserved49() = PublicChatReserved49;
-
-  /// Reporting (NIP56)
-  const factory Kind.reporting() = Reporting;
-
-  /// Zap Request (NIP57)
-  const factory Kind.zapRequest() = ZapRequest;
-
-  /// Zap (NIP57)
-  const factory Kind.zap() = Zap;
-
-  /// Mute List (NIP51)
-  const factory Kind.muteList() = MuteList;
-
-  /// Pin List (NIP51)
-  const factory Kind.pinList() = PinList;
-
-  /// Relay List Metadata (NIP65)
-  const factory Kind.relayList() = RelayList;
-
-  /// Client Authentication (NIP42)
-  const factory Kind.authentication() = Authentication;
-
-  /// Nostr Connect (NIP46)
-  const factory Kind.nostrConnect() = NostrConnect;
-
-  /// Categorized People List (NIP51)
-  const factory Kind.categorizedPeopleList() = CategorizedPeopleList;
-
-  /// Categorized Bookmark List (NIP51)
-  const factory Kind.categorizedBookmarkList() = CategorizedBookmarkList;
-
-  /// Profile Badges (NIP58)
-  const factory Kind.profileBadges() = ProfileBadges;
-
-  /// Badge Definition (NIP58)
-  const factory Kind.badgeDefinition() = BadgeDefinition;
-
-  /// Long-form Text Note (NIP23)
-  const factory Kind.longFormTextNote() = LongFormTextNote;
-
-  /// Application-specific Data (NIP78)
-  const factory Kind.applicationSpecificData() = ApplicationSpecificData;
-
-  /// Regular Events (must be between 1000 and <=9999)
-  const factory Kind.regular(int value) = Regular;
-
-  /// Replacabe event (must be between 10000 and <20000)
-  const factory Kind.replaceable(int value) = Replaceable;
-
-  /// Ephemeral event (must be between 20000 and <30000)
-  const factory Kind.ephemeral(int value) = Ephemeral;
-
-  /// Parameterized Replacabe event (must be between 30000 and <40000)
-  const factory Kind.parameterizedReplaceable(int value) =
-      ParameterizedReplaceable;
-
-  /// Custom
-  const factory Kind.custom(int value) = Custom;
-
-  factory Kind.fromString(String kind) {
-    int kindValue = int.parse(kind);
-    return Kind.fromInt(kindValue);
-  }
+  factory Kind.fromJson(Map<String, dynamic> json) => _$KindFromJson(json);
+  Map<String, dynamic> toJson() => _$KindToJson(this);
 
   factory Kind.fromInt(int value) {
-    switch (value) {
-      case 0:
-        return const Kind.metadata();
-      case 1:
-        return const Kind.textNote();
-      case 2:
-        return const Kind.recommendRelay();
-      case 3:
-        return const Kind.contactList();
-      case 4:
-        return const Kind.encryptedDirectMessage();
-      case 5:
-        return const Kind.eventDeletion();
-      case 6:
-        return const Kind.repost();
-      case 7:
-        return const Kind.reaction();
-      case 8:
-        return const Kind.badgeAward();
-      case 40:
-        return const Kind.channelCreation();
-      case 41:
-        return const Kind.channelMetadata();
-      case 42:
-        return const Kind.channelMessage();
-      case 43:
-        return const Kind.channelHideMessage();
-      case 44:
-        return const Kind.channelMuteUser();
-      case 45:
-        return const Kind.publicChatReserved45();
-      case 46:
-        return const Kind.publicChatReserved46();
-      case 47:
-        return const Kind.publicChatReserved47();
-      case 48:
-        return const Kind.publicChatReserved48();
-      case 49:
-        return const Kind.publicChatReserved49();
-      case 1984:
-        return const Kind.reporting();
-      case 9734:
-        return const Kind.zapRequest();
-      case 9735:
-        return const Kind.zap();
-      case 10000:
-        return const Kind.muteList();
-      case 10001:
-        return const Kind.pinList();
-      case 10002:
-        return const Kind.relayList();
-      case 22242:
-        return const Kind.authentication();
-      case 24133:
-        return const Kind.nostrConnect();
-      case 30000:
-        return const Kind.categorizedPeopleList();
-      case 30001:
-        return const Kind.categorizedBookmarkList();
-      case 30008:
-        return const Kind.profileBadges();
-      case 30009:
-        return const Kind.badgeDefinition();
-      case 30023:
-        return const Kind.longFormTextNote();
-      case 30078:
-        return const Kind.applicationSpecificData();
-      default:
-        if (value >= 1000 && value < 10000) {
-          return Kind.regular(value);
-        } else if (value >= 10000 && value < 20000) {
-          return Kind.replaceable(value);
-        } else if (value >= 20000 && value < 30000) {
-          return Kind.ephemeral(value);
-        } else if (value >= 30000 && value < 40000) {
-          return Kind.parameterizedReplaceable(value);
-        } else {
-          return Kind.custom(value);
-        }
+    final kind = _valueToKindMap[value];
+    if (kind != null) {
+      return kind;
+    } else if (value >= 1000 && value < 10000) {
+      return Regular(value);
+    } else if (value >= 10000 && value < 20000) {
+      return Replaceable(value);
+    } else if (value >= 20000 && value < 30000) {
+      return Ephemeral(value);
+    } else if (value >= 30000 && value < 40000) {
+      return ParameterizedReplaceable(value);
+    } else {
+      return Custom(value);
     }
   }
 
-  factory Kind.fromJson(Map<String, dynamic> json) => _$KindFromJson(json);
-}
-
-extension KindExtension on Kind {
-  bool equals(Kind other) {
-    return other.toInt() == toInt();
+  factory Kind.fromString(String value) {
+    final intValue = int.tryParse(value);
+    if (intValue != null) {
+      return Kind.fromInt(intValue);
+    } else {
+      throw const FormatException('Invalid input string');
+    }
   }
 
-  int toInt() => map(
-        metadata: (_) => 0,
-        textNote: (_) => 1,
-        recommendRelay: (_) => 2,
-        contactList: (_) => 3,
-        encryptedDirectMessage: (_) => 4,
-        eventDeletion: (_) => 5,
-        repost: (_) => 6,
-        reaction: (_) => 7,
-        badgeAward: (_) => 8,
-        channelCreation: (_) => 40,
-        channelMetadata: (_) => 41,
-        channelMessage: (_) => 42,
-        channelHideMessage: (_) => 43,
-        channelMuteUser: (_) => 44,
-        publicChatReserved45: (_) => 45,
-        publicChatReserved46: (_) => 46,
-        publicChatReserved47: (_) => 47,
-        publicChatReserved48: (_) => 48,
-        publicChatReserved49: (_) => 49,
-        reporting: (_) => 1984,
-        zapRequest: (_) => 9734,
-        zap: (_) => 9735,
-        muteList: (_) => 10000,
-        pinList: (_) => 10001,
-        relayList: (_) => 10002,
-        authentication: (_) => 22242,
-        nostrConnect: (_) => 24133,
-        categorizedPeopleList: (_) => 30000,
-        categorizedBookmarkList: (_) => 30001,
-        profileBadges: (_) => 30008,
-        badgeDefinition: (_) => 30009,
-        longFormTextNote: (_) => 30023,
-        applicationSpecificData: (_) => 30078,
-        regular: (v) => v.value,
-        replaceable: (v) => v.value,
-        ephemeral: (v) => v.value,
-        parameterizedReplaceable: (v) => v.value,
-        custom: (v) => v.value,
-      );
+  @override
+  List<Object?> get props => [value];
+}
+
+/// Metadata (NIP01 and NIP05)
+@JsonSerializable()
+class Metadata extends Kind {
+  @override
+  int get value => 0;
+
+  const Metadata();
+
+  factory Metadata.fromJson(Map<String, dynamic> json) =>
+      _$MetadataFromJson(json);
+}
+
+/// Short Text Note (NIP01)
+@JsonSerializable()
+class TextNote extends Kind {
+  @override
+  int get value => 1;
+
+  const TextNote();
+
+  factory TextNote.fromJson(Map<String, dynamic> json) =>
+      _$TextNoteFromJson(json);
+}
+
+/// Recommend Relay (NIP01)
+@JsonSerializable()
+class RecommendRelay extends Kind {
+  @override
+  int get value => 2;
+
+  const RecommendRelay();
+
+  factory RecommendRelay.fromJson(Map<String, dynamic> json) =>
+      _$RecommendRelayFromJson(json);
+}
+
+/// Contacts (NIP02)
+@JsonSerializable()
+class ContactList extends Kind {
+  @override
+  int get value => 3;
+
+  const ContactList();
+
+  factory ContactList.fromJson(Map<String, dynamic> json) =>
+      _$ContactListFromJson(json);
+}
+
+/// Encrypted Direct Message (NIP04)
+@JsonSerializable()
+class EncryptedDirectMessage extends Kind {
+  @override
+  int get value => 4;
+
+  const EncryptedDirectMessage();
+
+  factory EncryptedDirectMessage.fromJson(Map<String, dynamic> json) =>
+      _$EncryptedDirectMessageFromJson(json);
+}
+
+/// Event Deletion (NIP09)
+@JsonSerializable()
+class EventDeletion extends Kind {
+  @override
+  int get value => 5;
+
+  const EventDeletion();
+
+  factory EventDeletion.fromJson(Map<String, dynamic> json) =>
+      _$EventDeletionFromJson(json);
+}
+
+/// Repost (NIP18)
+@JsonSerializable()
+class Repost extends Kind {
+  @override
+  int get value => 6;
+
+  const Repost();
+
+  factory Repost.fromJson(Map<String, dynamic> json) => _$RepostFromJson(json);
+}
+
+/// Reaction (NIP25)
+@JsonSerializable()
+class Reaction extends Kind {
+  @override
+  int get value => 7;
+
+  const Reaction();
+
+  factory Reaction.fromJson(Map<String, dynamic> json) =>
+      _$ReactionFromJson(json);
+}
+
+/// Badge Award (NIP58)
+@JsonSerializable()
+class BadgeAward extends Kind {
+  @override
+  int get value => 8;
+
+  const BadgeAward();
+
+  factory BadgeAward.fromJson(Map<String, dynamic> json) =>
+      _$BadgeAwardFromJson(json);
+}
+
+/// Channel Creation (NIP28)
+@JsonSerializable()
+class ChannelCreation extends Kind {
+  @override
+  int get value => 40;
+
+  const ChannelCreation();
+
+  factory ChannelCreation.fromJson(Map<String, dynamic> json) =>
+      _$ChannelCreationFromJson(json);
+}
+
+/// Channel Metadata (NIP28)
+@JsonSerializable()
+class ChannelMetadata extends Kind {
+  @override
+  int get value => 41;
+
+  const ChannelMetadata();
+
+  factory ChannelMetadata.fromJson(Map<String, dynamic> json) =>
+      _$ChannelMetadataFromJson(json);
+}
+
+/// Channel Message (NIP28)
+@JsonSerializable()
+class ChannelMessage extends Kind {
+  @override
+  int get value => 42;
+
+  const ChannelMessage();
+
+  factory ChannelMessage.fromJson(Map<String, dynamic> json) =>
+      _$ChannelMessageFromJson(json);
+}
+
+/// Channel Hide Message (NIP28)
+@JsonSerializable()
+class ChannelHideMessage extends Kind {
+  @override
+  int get value => 43;
+
+  const ChannelHideMessage();
+
+  factory ChannelHideMessage.fromJson(Map<String, dynamic> json) =>
+      _$ChannelHideMessageFromJson(json);
+}
+
+/// Channel Mute User (NIP28)
+@JsonSerializable()
+class ChannelMuteUser extends Kind {
+  @override
+  int get value => 44;
+
+  const ChannelMuteUser();
+
+  factory ChannelMuteUser.fromJson(Map<String, dynamic> json) =>
+      _$ChannelMuteUserFromJson(json);
+}
+
+/// Public Chat Reserved (NIP28)
+@JsonSerializable()
+class PublicChatReserved45 extends Kind {
+  @override
+  int get value => 45;
+
+  const PublicChatReserved45();
+
+  factory PublicChatReserved45.fromJson(Map<String, dynamic> json) =>
+      _$PublicChatReserved45FromJson(json);
+}
+
+/// Public Chat Reserved (NIP28)
+@JsonSerializable()
+class PublicChatReserved46 extends Kind {
+  @override
+  int get value => 46;
+
+  const PublicChatReserved46();
+
+  factory PublicChatReserved46.fromJson(Map<String, dynamic> json) =>
+      _$PublicChatReserved46FromJson(json);
+}
+
+/// Public Chat Reserved (NIP28)
+@JsonSerializable()
+class PublicChatReserved47 extends Kind {
+  @override
+  int get value => 47;
+
+  const PublicChatReserved47();
+
+  factory PublicChatReserved47.fromJson(Map<String, dynamic> json) =>
+      _$PublicChatReserved47FromJson(json);
+}
+
+/// Public Chat Reserved (NIP28)
+@JsonSerializable()
+class PublicChatReserved48 extends Kind {
+  @override
+  int get value => 48;
+
+  const PublicChatReserved48();
+
+  factory PublicChatReserved48.fromJson(Map<String, dynamic> json) =>
+      _$PublicChatReserved48FromJson(json);
+}
+
+/// Public Chat Reserved (NIP28)
+@JsonSerializable()
+class PublicChatReserved49 extends Kind {
+  @override
+  int get value => 49;
+
+  const PublicChatReserved49();
+
+  factory PublicChatReserved49.fromJson(Map<String, dynamic> json) =>
+      _$PublicChatReserved49FromJson(json);
+}
+
+/// Reporting (NIP56)
+@JsonSerializable()
+class Reporting extends Kind {
+  @override
+  int get value => 1984;
+
+  const Reporting();
+
+  factory Reporting.fromJson(Map<String, dynamic> json) =>
+      _$ReportingFromJson(json);
+}
+
+/// Zap Request (NIP57)
+@JsonSerializable()
+class ZapRequest extends Kind {
+  @override
+  int get value => 9734;
+
+  const ZapRequest();
+
+  factory ZapRequest.fromJson(Map<String, dynamic> json) =>
+      _$ZapRequestFromJson(json);
+}
+
+/// Zap (NIP57)
+@JsonSerializable()
+class Zap extends Kind {
+  @override
+  int get value => 9735;
+
+  const Zap();
+
+  factory Zap.fromJson(Map<String, dynamic> json) => _$ZapFromJson(json);
+}
+
+/// Mute List (NIP51)
+@JsonSerializable()
+class MuteList extends Kind {
+  @override
+  int get value => 10000;
+
+  const MuteList();
+
+  factory MuteList.fromJson(Map<String, dynamic> json) =>
+      _$MuteListFromJson(json);
+}
+
+/// Pin List (NIP51)
+@JsonSerializable()
+class PinList extends Kind {
+  @override
+  int get value => 10001;
+
+  const PinList();
+
+  factory PinList.fromJson(Map<String, dynamic> json) =>
+      _$PinListFromJson(json);
+}
+
+/// Relay List Metadata (NIP65)
+@JsonSerializable()
+class RelayList extends Kind {
+  @override
+  int get value => 10002;
+
+  const RelayList();
+
+  factory RelayList.fromJson(Map<String, dynamic> json) =>
+      _$RelayListFromJson(json);
+}
+
+/// Client Authentication (NIP42)
+@JsonSerializable()
+class Authentication extends Kind {
+  @override
+  int get value => 22242;
+
+  const Authentication();
+
+  factory Authentication.fromJson(Map<String, dynamic> json) =>
+      _$AuthenticationFromJson(json);
+}
+
+/// Nostr Connect (NIP46)
+@JsonSerializable()
+class NostrConnect extends Kind {
+  @override
+  int get value => 24133;
+
+  const NostrConnect();
+
+  factory NostrConnect.fromJson(Map<String, dynamic> json) =>
+      _$NostrConnectFromJson(json);
+}
+
+/// Categorized People List (NIP51)
+@JsonSerializable()
+class CategorizedPeopleList extends Kind {
+  @override
+  int get value => 30000;
+
+  const CategorizedPeopleList();
+
+  factory CategorizedPeopleList.fromJson(Map<String, dynamic> json) =>
+      _$CategorizedPeopleListFromJson(json);
+}
+
+/// Categorized Bookmark List (NIP51)
+@JsonSerializable()
+class CategorizedBookmarkList extends Kind {
+  @override
+  int get value => 30001;
+
+  const CategorizedBookmarkList();
+
+  factory CategorizedBookmarkList.fromJson(Map<String, dynamic> json) =>
+      _$CategorizedBookmarkListFromJson(json);
+}
+
+/// Profile Badges (NIP58)
+@JsonSerializable()
+class ProfileBadges extends Kind {
+  @override
+  int get value => 30008;
+
+  const ProfileBadges();
+
+  factory ProfileBadges.fromJson(Map<String, dynamic> json) =>
+      _$ProfileBadgesFromJson(json);
+}
+
+/// Badge Definition (NIP58)
+@JsonSerializable()
+class BadgeDefinition extends Kind {
+  @override
+  int get value => 30009;
+
+  const BadgeDefinition();
+
+  factory BadgeDefinition.fromJson(Map<String, dynamic> json) =>
+      _$BadgeDefinitionFromJson(json);
+}
+
+/// Long-form Text Note (NIP23)
+@JsonSerializable()
+class LongFormTextNote extends Kind {
+  @override
+  int get value => 30023;
+
+  const LongFormTextNote();
+
+  factory LongFormTextNote.fromJson(Map<String, dynamic> json) =>
+      _$LongFormTextNoteFromJson(json);
+}
+
+/// Application-specific Data (NIP78)
+@JsonSerializable()
+class ApplicationSpecificData extends Kind {
+  @override
+  int get value => 30078;
+
+  const ApplicationSpecificData();
+
+  factory ApplicationSpecificData.fromJson(Map<String, dynamic> json) =>
+      _$ApplicationSpecificDataFromJson(json);
+}
+
+/// Regular Events (must be between 1000 and <=9999)
+@JsonSerializable()
+class Regular extends Kind {
+  @override
+  final int value;
+
+  const Regular(this.value) : assert(value >= 1000 && value <= 9999);
+
+  factory Regular.fromJson(Map<String, dynamic> json) =>
+      _$RegularFromJson(json);
+}
+
+/// Replacabe event (must be between 10000 and <20000)
+@JsonSerializable()
+class Replaceable extends Kind {
+  @override
+  final int value;
+
+  const Replaceable(this.value) : assert(value >= 10000 && value < 20000);
+
+  factory Replaceable.fromJson(Map<String, dynamic> json) =>
+      _$ReplaceableFromJson(json);
+}
+
+/// Ephemeral event (must be between 20000 and <30000)
+@JsonSerializable()
+class Ephemeral extends Kind {
+  @override
+  final int value;
+
+  const Ephemeral(this.value) : assert(value >= 20000 && value < 30000);
+
+  factory Ephemeral.fromJson(Map<String, dynamic> json) =>
+      _$EphemeralFromJson(json);
+}
+
+/// Parameterized Replacabe event (must be between 30000 and <40000)
+@JsonSerializable()
+class ParameterizedReplaceable extends Kind {
+  @override
+  final int value;
+
+  const ParameterizedReplaceable(this.value)
+      : assert(value >= 30000 && value < 40000);
+
+  factory ParameterizedReplaceable.fromJson(Map<String, dynamic> json) =>
+      _$ParameterizedReplaceableFromJson(json);
+}
+
+/// Custom
+@JsonSerializable()
+class Custom extends Kind {
+  @override
+  final int value;
+
+  const Custom(this.value);
+
+  factory Custom.fromJson(Map<String, dynamic> json) => _$CustomFromJson(json);
 }
