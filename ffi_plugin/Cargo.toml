@@ -8,6 +8,9 @@ build = "build.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
+nostr-sdk = "0.21.0"
 
 [build-dependencies]
 cbindgen = "0.24.3"
+
+[dev-dependencies]

@@ -58,3 +58,11 @@ dependencies = [
     "ffigen",
     "clean-flutter",
 ]
+
+[tasks.update]
+description = "Run all tasks"
+dependencies = [
+    "build-rust",
+    "copy-lib-to-macos",
+    "ffigen",
+]

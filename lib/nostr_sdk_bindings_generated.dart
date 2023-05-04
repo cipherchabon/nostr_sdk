@@ -26,13 +26,222 @@ class NostrSdkBindings {
           lookup)
       : _lookup = lookup;
 
-  ffi.Pointer<ffi.Int> hello_world() {
-    return _hello_world();
+  /// Initialize from secret key.
+  /// # Safety
+  /// secret_key must be a valid 32-byte secret key
+  ffi.Pointer<ffi.Void> keys_new(
+    ffi.Pointer<ffi.Void> secret_key,
+  ) {
+    return _keys_new(
+      secret_key,
+    );
   }
 
-  late final _hello_worldPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Int> Function()>>(
-          'hello_world');
-  late final _hello_world =
-      _hello_worldPtr.asFunction<ffi.Pointer<ffi.Int> Function()>();
+  late final _keys_newPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>('keys_new');
+  late final _keys_new = _keys_newPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
+
+  /// Initialize with public key only (no secret key).
+  /// # Safety
+  /// public_key must be a valid 33-byte public key
+  ffi.Pointer<ffi.Void> keys_from_public_key(
+    ffi.Pointer<ffi.Void> public_key,
+  ) {
+    return _keys_from_public_key(
+      public_key,
+    );
+  }
+
+  late final _keys_from_public_keyPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<ffi.Void>)>>('keys_from_public_key');
+  late final _keys_from_public_key = _keys_from_public_keyPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
+
+  /// Generate a new key pair
+  ffi.Pointer<ffi.Void> keys_generate() {
+    return _keys_generate();
+  }
+
+  late final _keys_generatePtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function()>>(
+          'keys_generate');
+  late final _keys_generate =
+      _keys_generatePtr.asFunction<ffi.Pointer<ffi.Void> Function()>();
+
+  /// Get the public key
+  /// # Safety
+  ffi.Pointer<ffi.Void> keys_get_public_key(
+    ffi.Pointer<ffi.Void> keys_ptr,
+  ) {
+    return _keys_get_public_key(
+      keys_ptr,
+    );
+  }
+
+  late final _keys_get_public_keyPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<ffi.Void>)>>('keys_get_public_key');
+  late final _keys_get_public_key = _keys_get_public_keyPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>();
+
+  /// Get the secret key
+  /// # Safety
+  NativeOption keys_get_secret_key(
+    ffi.Pointer<ffi.Void> keys_ptr,
+  ) {
+    return _keys_get_secret_key(
+      keys_ptr,
+    );
+  }
+
+  late final _keys_get_secret_keyPtr =
+      _lookup<ffi.NativeFunction<NativeOption Function(ffi.Pointer<ffi.Void>)>>(
+          'keys_get_secret_key');
+  late final _keys_get_secret_key = _keys_get_secret_keyPtr
+      .asFunction<NativeOption Function(ffi.Pointer<ffi.Void>)>();
+
+  /// Create a new public key from a 33-byte array.
+  /// # Safety
+  NativeResult public_key_from_str(
+    ffi.Pointer<ffi.Char> pk_str,
+  ) {
+    return _public_key_from_str(
+      pk_str,
+    );
+  }
+
+  late final _public_key_from_strPtr =
+      _lookup<ffi.NativeFunction<NativeResult Function(ffi.Pointer<ffi.Char>)>>(
+          'public_key_from_str');
+  late final _public_key_from_str = _public_key_from_strPtr
+      .asFunction<NativeResult Function(ffi.Pointer<ffi.Char>)>();
+
+  /// Public Key to String
+  /// # Safety
+  ffi.Pointer<ffi.Char> public_key_to_str(
+    ffi.Pointer<ffi.Void> pk,
+  ) {
+    return _public_key_to_str(
+      pk,
+    );
+  }
+
+  late final _public_key_to_strPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(
+              ffi.Pointer<ffi.Void>)>>('public_key_to_str');
+  late final _public_key_to_str = _public_key_to_strPtr
+      .asFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Void>)>();
+
+  /// Create a new secret key from a 32-byte array.
+  /// # Safety
+  NativeResult secret_key_from_str(
+    ffi.Pointer<ffi.Char> sk_str,
+  ) {
+    return _secret_key_from_str(
+      sk_str,
+    );
+  }
+
+  late final _secret_key_from_strPtr =
+      _lookup<ffi.NativeFunction<NativeResult Function(ffi.Pointer<ffi.Char>)>>(
+          'secret_key_from_str');
+  late final _secret_key_from_str = _secret_key_from_strPtr
+      .asFunction<NativeResult Function(ffi.Pointer<ffi.Char>)>();
+
+  /// Secret Key to String
+  /// # Safety
+  ffi.Pointer<ffi.Char> secret_key_to_str(
+    ffi.Pointer<ffi.Void> sk,
+  ) {
+    return _secret_key_to_str(
+      sk,
+    );
+  }
+
+  late final _secret_key_to_strPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(
+              ffi.Pointer<ffi.Void>)>>('secret_key_to_str');
+  late final _secret_key_to_str = _secret_key_to_strPtr
+      .asFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Void>)>();
+
+  /// # Safety
+  /// It is the caller's responsibility to ensure that the pointer is valid.
+  void free_c_void_ptr(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _free_c_void_ptr(
+      ptr,
+    );
+  }
+
+  late final _free_c_void_ptrPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'free_c_void_ptr');
+  late final _free_c_void_ptr =
+      _free_c_void_ptrPtr.asFunction<void Function(ffi.Pointer<ffi.Void>)>();
+
+  /// # Safety
+  /// It is the caller's responsibility to ensure that the pointer is valid.
+  void free_c_char_ptr(
+    ffi.Pointer<ffi.Char> ptr,
+  ) {
+    return _free_c_char_ptr(
+      ptr,
+    );
+  }
+
+  late final _free_c_char_ptrPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
+          'free_c_char_ptr');
+  late final _free_c_char_ptr =
+      _free_c_char_ptrPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
+
+  /// Check if a secret key is valid.
+  /// # Safety
+  int is_valid_secret_key(
+    ffi.Pointer<ffi.Char> secret_key,
+  ) {
+    return _is_valid_secret_key(
+      secret_key,
+    );
+  }
+
+  late final _is_valid_secret_keyPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Char>)>>(
+          'is_valid_secret_key');
+  late final _is_valid_secret_key =
+      _is_valid_secret_keyPtr.asFunction<int Function(ffi.Pointer<ffi.Char>)>();
+
+  /// Check if a public key (XOnlyPublicKey) is valid.
+  /// # Safety
+  int is_valid_public_key(
+    ffi.Pointer<ffi.Char> public_key,
+  ) {
+    return _is_valid_public_key(
+      public_key,
+    );
+  }
+
+  late final _is_valid_public_keyPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Char>)>>(
+          'is_valid_public_key');
+  late final _is_valid_public_key =
+      _is_valid_public_keyPtr.asFunction<int Function(ffi.Pointer<ffi.Char>)>();
+}
+
+class NativeOption extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+class NativeResult extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+
+  external ffi.Pointer<ffi.Char> error_ptr;
 }

@@ -1,4 +1,11 @@
-#[no_mangle]
-pub extern "C" fn hello_world() -> *const u8 {
-    b"Hello, world!\0".as_ptr()
+pub mod common;
+pub mod keys;
+pub mod memory_management;
+pub mod validation_utils;
+
+mod prelude {
+    pub use crate::common::{to_raw_ptr, NativeOption, NativeResult};
+    pub use std::ffi::{c_void, CStr, CString};
+    pub use std::os::raw::c_char;
+    pub use std::str::FromStr;
 }

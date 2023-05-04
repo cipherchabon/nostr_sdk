@@ -13,7 +13,7 @@ final DynamicLibrary _dylib = () {
   if (Platform.isMacOS) {
     final currentPath = Directory.current.path;
 
-    if (currentPath.contains('ffi_plugin')) {
+    if (currentPath.contains('nostr_sdk')) {
       return DynamicLibrary.open('$currentPath/macos/$_libName.dylib');
     }
 
